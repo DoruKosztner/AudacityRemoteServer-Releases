@@ -6,6 +6,9 @@ Kabellose WLAN-Fernbedienung für **Audacity 3.x**, **Audacity 4** und portable 
 
 ### [⬇ AudacityRemoteServer.exe herunterladen](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktive Webseite](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Da diese kostenlose App noch kein kostenpflichtiges Code-Signing-Zertifikat besitzt, zeigt Windows beim ersten Start eventuell *"Der Computer wurde durch Windows geschützt"*. Klicken Sie auf **Weitere Informationen** und dann auf **Trotzdem ausführen**.
+
 ---
 
 ## Screenshots
