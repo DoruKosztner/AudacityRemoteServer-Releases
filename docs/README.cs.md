@@ -6,6 +6,9 @@ Bezdrátový dálkový ovladač pro **Audacity 3.x**, **Audacity 4** i portable 
 
 ### [⬇ Stáhnout AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktivní webová stránka](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Protože jde o bezplatnou aplikaci bez placeného komerčního certifikátu, může Windows při prvním spuštění zobrazit modré okno *"Systém Windows ochránil váš počítač"*. Stačí kliknout na **Další informace** a poté na **Přesto spustit**.
+
 ---
 
 ## Ukázky obrazovek
