@@ -6,6 +6,9 @@ Bezprzewodowy pilot Wi-Fi dla **Audacity 3.x**, **Audacity 4** i wersji portable
 
 ### [⬇ Pobierz AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktywna strona WWW](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Ponieważ ta darmowa aplikacja nie ma jeszcze płatnego certyfikatu komercyjnego, przy pierwszym uruchomieniu system Windows może wyświetlić komunikat *"System Windows ochronił ten komputer"*. Kliknij **Więcej informacji**, a następnie **Uruchom mimo to**.
+
 ---
 
 ## Zrzuty ekranu
