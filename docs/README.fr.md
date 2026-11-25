@@ -6,6 +6,9 @@ Télécommande Wi-Fi locale pour **Audacity 3.x**, **Audacity 4** et versions po
 
 ### [⬇ Télécharger AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Page web interactive](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen :** Comme cette application gratuite ne dispose pas encore d'un certificat commercial payant, Windows peut afficher *« Windows a protégé votre ordinateur »* au premier lancement. Cliquez sur **Informations complémentaires** puis sur **Exécuter quand même**.
+
 ---
 
 ## Captures d'écran
