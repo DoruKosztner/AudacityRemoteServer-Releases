@@ -109,10 +109,17 @@
     .social-pill.kofi { border-color: rgba(245, 158, 11, 0.5); color: #fcd34d; }
     .kofi-icon { height: 20px; width: auto; display: block; border-radius: 4px; }
     .smartscreen-note {
-      max-width: 760px; margin: 16px auto 0; padding: 12px 16px;
-      border-radius: 12px; background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(96, 165, 250, 0.35); color: #dbeafe;
+      display: flex; align-items: flex-start; gap: 12px;
+      max-width: 760px; margin: 16px auto 0; padding: 13px 16px;
+      border-radius: 12px; background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4); color: #e0f2fe;
       font-size: 0.88rem; line-height: 1.5; text-align: left;
+    }
+    .info-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #38bdf8; color: #0b1120; font-weight: 900;
+      font-size: 0.85rem; line-height: 1; flex-shrink: 0; margin-top: 1px;
     }
     footer {
       border-top: 1px solid var(--border); padding: 24px 0 36px;
@@ -153,7 +160,10 @@
         <a class="btn btn-primary" id="btnDownload" href="https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe">⬇ Download AudacityRemoteServer.exe</a>
         <a class="btn btn-secondary" id="btnReleases" href="https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases">GitHub Releases</a>
       </div>
-      <div class="smartscreen-note" id="smartScreenNote"></div>
+      <div class="smartscreen-note">
+        <span class="info-badge" aria-hidden="true">i</span>
+        <div id="smartScreenNote"></div>
+      </div>
     </section>
 
     <section class="showcase">
@@ -222,7 +232,7 @@
         heroSub: "Control Audacity wirelessly from your iPad, tablet, or smartphone over local Wi-Fi — start, pause, stop, jump tracks, and monitor your live microphone VU meter without walking back and forth to your PC.",
         dl: "⬇ Download AudacityRemoteServer.exe",
         rel: "All Releases & Changelog",
-        smartScreen: "<b>ℹ Windows SmartScreen Note:</b> Because this free app does not yet use a paid commercial code-signing certificate, Windows may show <i>“Windows protected your PC”</i> on first launch. Click <b>More info</b> and then <b>Run anyway</b>.",
+        smartScreen: "<b>Windows SmartScreen Note:</b> Because this free app does not yet use a paid commercial code-signing certificate, Windows may show <i>“Windows protected your PC”</i> on first launch. Click <b>More info</b> and then <b>Run anyway</b>.",
         capPc: "PC Server (Windows) — QR code, live VU meter, Audacity 3/4 auto-detection",
         capMobile: "Mobile / iPad Web Remote — 24-segment LED VU meter & big touch controls",
         f1Title: "Zero-Install & Portable Ready",
@@ -257,7 +267,7 @@
         heroSub: "Ovládejte Audacity bezdrátově z iPadu, tabletu nebo mobilu přes domácí Wi-Fi — spouštějte a pozastavujte nahrávání, posouvejte kurzor a sledujte živý VU meter mikrofonu bez odbíhání k PC.",
         dl: "⬇ Stáhnout AudacityRemoteServer.exe",
         rel: "Všechny verze (Releases)",
-        smartScreen: "<b>ℹ Poznámka k Windows SmartScreen:</b> Protože jde o bezplatnou aplikaci bez placeného komerčního certifikátu, může Windows při prvním spuštění zobrazit modré okno <i>„Systém Windows ochránil váš počítač“</i>. Stačí kliknout na <b>Další informace</b> a poté na <b>Přesto spustit</b>.",
+        smartScreen: "<b>Poznámka k Windows SmartScreen:</b> Protože jde o bezplatnou aplikaci bez placeného komerčního certifikátu, může Windows při prvním spuštění zobrazit modré okno <i>„Systém Windows ochránil váš počítač“</i>. Stačí kliknout na <b>Další informace</b> a poté na <b>Přesto spustit</b>.",
         capPc: "PC Server (Windows) — QR kód, živý VU meter, automatická detekce Audacity 3/4",
         capMobile: "Mobilní / iPad ovladač — 24segmentový LED VU meter a velká dotyková tlačítka",
         f1Title: "Bez instalace i pro Portable",
@@ -292,7 +302,7 @@
         heroSub: "Steuern Sie Audacity kabellos per iPad, Tablet oder Smartphone über Ihr lokales WLAN — Aufnahme starten, pausieren, stoppen und Live-VU-Meter prüfen, ohne zum PC zu laufen.",
         dl: "⬇ AudacityRemoteServer.exe herunterladen",
         rel: "Alle Releases",
-        smartScreen: "<b>ℹ Hinweis zu Windows SmartScreen:</b> Da diese kostenlose App noch kein kostenpflichtiges Code-Signing-Zertifikat besitzt, zeigt Windows beim ersten Start eventuell <i>„Der Computer wurde durch Windows geschützt“</i>. Klicken Sie einfach auf <b>Weitere Informationen</b> und dann auf <b>Trotzdem ausführen</b>.",
+        smartScreen: "<b>Hinweis zu Windows SmartScreen:</b> Da diese kostenlose App noch kein kostenpflichtiges Code-Signing-Zertifikat besitzt, zeigt Windows beim ersten Start eventuell <i>„Der Computer wurde durch Windows geschützt“</i>. Klicken Sie einfach auf <b>Weitere Informationen</b> und dann auf <b>Trotzdem ausführen</b>.",
         capPc: "PC-Server (Windows) — QR-Code, Live-VU-Meter, automatische Audacity-Erkennung",
         capMobile: "Mobile / iPad Web-Remote — 24-Segment-LED-VU-Meter & große Touch-Tasten",
         f1Title: "Ohne Installation & Portable",
@@ -327,7 +337,7 @@
         heroSub: "Controla Audacity sin cables desde tu iPad, tablet o móvil por Wi-Fi local — graba, pausa, detén y vigila el medidor VU en vivo sin levantarte hacia el PC.",
         dl: "⬇ Descargar AudacityRemoteServer.exe",
         rel: "Todas las versiones",
-        smartScreen: "<b>ℹ Nota sobre Windows SmartScreen:</b> Como esta aplicación gratuita aún no cuenta con un certificado comercial de pago, Windows puede mostrar <i>“Windows protegió su PC”</i> al iniciarla por primera vez. Haz clic en <b>Más información</b> y luego en <b>Ejecutar de todas formas</b>.",
+        smartScreen: "<b>Nota sobre Windows SmartScreen:</b> Como esta aplicación gratuita aún no cuenta con un certificado comercial de pago, Windows puede mostrar <i>“Windows protegió su PC”</i> al iniciarla por primera vez. Haz clic en <b>Más información</b> y luego en <b>Ejecutar de todas formas</b>.",
         capPc: "Servidor PC (Windows) — Código QR, VU meter en vivo, detección automática",
         capMobile: "Control móvil / iPad — VU meter LED de 24 segmentos y botones táctiles",
         f1Title: "Sin instalación y Portable",
@@ -362,7 +372,7 @@
         heroSub: "Contrôlez Audacity sans fil depuis votre iPad, tablette ou smartphone en Wi-Fi local — enregistrez, mettez en pause et surveillez le VU-mètre en direct sans quitter votre micro.",
         dl: "⬇ Télécharger AudacityRemoteServer.exe",
         rel: "Toutes les versions",
-        smartScreen: "<b>ℹ Note Windows SmartScreen :</b> Comme cette application gratuite ne dispose pas encore d'un certificat commercial payant, Windows peut afficher <i>« Windows a protégé votre ordinateur »</i> au premier lancement. Cliquez sur <b>Informations complémentaires</b> puis sur <b>Exécuter quand même</b>.",
+        smartScreen: "<b>Note Windows SmartScreen :</b> Comme cette application gratuite ne dispose pas encore d'un certificat commercial payant, Windows peut afficher <i>« Windows a protégé votre ordinateur »</i> au premier lancement. Cliquez sur <b>Informations complémentaires</b> puis sur <b>Exécuter quand même</b>.",
         capPc: "Serveur PC (Windows) — Code QR, VU-mètre en direct, détection auto",
         capMobile: "Télécommande Mobile / iPad — VU-mètre LED 24 segments et grands boutons",
         f1Title: "Sans installation & Portable",
@@ -397,7 +407,7 @@
         heroSub: "Controlla Audacity senza fili da iPad, tablet o smartphone via Wi-Fi locale — avvia, metti in pausa, ferma e controlla il VU meter dal vivo senza alzarti verso il PC.",
         dl: "⬇ Scarica AudacityRemoteServer.exe",
         rel: "Tutte le versioni",
-        smartScreen: "<b>ℹ Nota su Windows SmartScreen:</b> Poiché questa app gratuita non ha ancora un certificato commerciale a pagamento, al primo avvio Windows potrebbe mostrare <i>“PC protetto da Windows”</i>. Fai clic su <b>Ulteriori informazioni</b> e poi su <b>Esegui comunque</b>.",
+        smartScreen: "<b>Nota su Windows SmartScreen:</b> Poiché questa app gratuita non ha ancora un certificato commerciale a pagamento, al primo avvio Windows potrebbe mostrare <i>“PC protetto da Windows”</i>. Fai clic su <b>Ulteriori informazioni</b> e poi su <b>Esegui comunque</b>.",
         capPc: "Server PC (Windows) — Codice QR, VU meter live, rilevamento automatico",
         capMobile: "Telecomando Mobile / iPad — VU meter LED a 24 segmenti",
         f1Title: "Senza installazione e Portable",
@@ -432,7 +442,7 @@
         heroSub: "Steruj Audacity bezprzewodowo z iPada, tabletu lub telefonu w sieci Wi-Fi — nagrywaj, zatrzymuj i obserwuj wskaźnik VU mikrofonu na żywo bez podchodzenia do komputera.",
         dl: "⬇ Pobierz AudacityRemoteServer.exe",
         rel: "Wszystkie wydania",
-        smartScreen: "<b>ℹ Informacja o Windows SmartScreen:</b> Ponieważ ta darmowa aplikacja nie ma jeszcze płatnego certyfikatu komercyjnego, przy pierwszym uruchomieniu system Windows może wyświetlić komunikat <i>„System Windows ochronił ten komputer”</i>. Kliknij <b>Więcej informacji</b>, a następnie <b>Uruchom mimo to</b>.",
+        smartScreen: "<b>Informacja o Windows SmartScreen:</b> Ponieważ ta darmowa aplikacja nie ma jeszcze płatnego certyfikatu komercyjnego, przy pierwszym uruchomieniu system Windows może wyświetlić komunikat <i>„System Windows ochronił ten komputer”</i>. Kliknij <b>Więcej informacji</b>, a następnie <b>Uruchom mimo to</b>.",
         capPc: "Serwer PC (Windows) — kod QR, wskaźnik VU na żywo, autodetekcja",
         capMobile: "Pilot Mobilny / iPad — 24-segmentowy wskaźnik LED VU",
         f1Title: "Bez instalacji i dla Portable",
@@ -467,7 +477,7 @@
         heroSub: "Controlează Audacity wireless de pe iPad, tabletă sau telefon prin Wi-Fi local — pornește, pune pauză, oprește și urmărește VU-metrul live fără să te deplasezi la PC.",
         dl: "⬇ Descarcă AudacityRemoteServer.exe",
         rel: "Toate versiunile",
-        smartScreen: "<b>ℹ Notă Windows SmartScreen:</b> Deoarece această aplicație gratuită nu are încă un certificat comercial plătit, Windows poate afișa la prima pornire mesajul <i>„Windows a protejat PC-ul”</i>. Faceți clic pe <b>Informații suplimentare</b> și apoi pe <b>Executare oricum</b>.",
+        smartScreen: "<b>Notă Windows SmartScreen:</b> Deoarece această aplicație gratuită nu are încă un certificat comercial plătit, Windows poate afișa la prima pornire mesajul <i>„Windows a protejat PC-ul”</i>. Faceți clic pe <b>Informații suplimentare</b> și apoi pe <b>Executare oricum</b>.",
         capPc: "Server PC (Windows) — cod QR, VU-metru live, detectare automată",
         capMobile: "Telecomandă Mobil / iPad — VU-metru LED cu 24 segmente",
         f1Title: "Fără instalare și Portabil",
