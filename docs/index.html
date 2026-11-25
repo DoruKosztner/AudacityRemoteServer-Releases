@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audacity Remote Server — DoruTools</title>
+  <link rel="icon" type="image/png" href="images/app-icon.png" />
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #111a2e;
+      --surface-2: #0d1526;
+      --border: #223152;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --green: #10b981;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #132140 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(8, 13, 24, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 12px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.05rem; }
+    .brand img { width: 38px; height: 38px; border-radius: 10px; }
+    .lang-wrap { display: flex; align-items: center; gap: 8px; }
+    .lang-wrap label { color: var(--muted); font-size: 0.88rem; font-weight: 600; }
+    select {
+      background: var(--surface); color: var(--text); border: 1px solid var(--border);
+      border-radius: 10px; padding: 7px 12px; font-weight: 700; cursor: pointer;
+    }
+    .hero {
+      padding: 54px 0 38px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+    }
+    .hero img.logo { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+    .badge {
+      display: inline-block; padding: 4px 12px; border-radius: 999px;
+      background: rgba(59,130,246,0.16); border: 1px solid rgba(96,165,250,0.35);
+      color: #93c5fd; font-size: 0.82rem; font-weight: 700;
+    }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; }
+    .hero p { margin: 0; max-width: 720px; color: #cbd5e1; font-size: 1.08rem; }
+    .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; border-radius: 12px; font-weight: 800; font-size: 0.98rem;
+      border: 1px solid transparent; cursor: pointer; text-decoration: none !important;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .btn-primary { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+    .showcase {
+      display: grid; grid-template-columns: 1.65fr 0.78fr; gap: 22px; align-items: center;
+      margin: 24px 0 46px;
+    }
+    @media (max-width: 860px) { .showcase { grid-template-columns: 1fr; } }
+    .shot-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+      padding: 14px; box-shadow: 0 18px 45px rgba(0,0,0,0.35); text-align: center;
+    }
+    .shot-card img { width: 100%; height: auto; border-radius: 10px; display: block; }
+    .shot-card.mobile img { max-height: 520px; width: auto; margin: 0 auto; }
+    .shot-cap { margin-top: 10px; font-size: 0.88rem; color: var(--muted); font-weight: 600; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 42px; }
+    @media (max-width: 820px) { .grid-3 { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 1.04rem; color: #93c5fd; }
+    .card p, .card li { color: #cbd5e1; font-size: 0.94rem; margin: 0; }
+    .card ul, .card ol { margin: 8px 0 0; padding-left: 20px; }
+    .card li { margin-bottom: 6px; }
+    .section-title { font-size: 1.45rem; margin: 0 0 16px; }
+    .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 42px; }
+    @media (max-width: 820px) { .guide-grid { grid-template-columns: 1fr; } }
+    .warn-box {
+      background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 14px; padding: 14px 16px; margin-bottom: 36px; color: #fde68a; font-size: 0.94rem;
+    }
+    .story-card {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 18px;
+      padding: 24px; margin-bottom: 42px;
+    }
+    .social-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .social-pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+      border-radius: 999px; background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); font-weight: 700; font-size: 0.88rem;
+    }
+    .social-pill.kofi { border-color: rgba(245, 158, 11, 0.5); color: #fcd34d; }
+    footer {
+      border-top: 1px solid var(--border); padding: 24px 0 36px;
+      color: var(--muted); font-size: 0.86rem; text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/app-icon.png" alt="Audacity Remote Server" />
+        <span>Audacity Remote Server</span>
+      </div>
+      <div class="lang-wrap">
+        <label for="langSel" id="lblLang">Language:</label>
+        <select id="langSel" onchange="setLang(this.value)">
+          <option value="cs">🇨🇿 Čeština</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="pl">🇵🇱 Polski</option>
+          <option value="ro">🇷🇴 Română</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img class="logo" src="images/app-icon.png" alt="Logo" />
+      <span class="badge" id="badgeVer">Freeware • Windows x64 • Audacity 3.x &amp; 4</span>
+      <h1 id="heroTitle">Audacity Remote Server</h1>
+      <p id="heroSub"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" id="btnDownload" href="https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe">⬇ Download AudacityRemoteServer.exe</a>
+        <a class="btn btn-secondary" id="btnReleases" href="https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases">GitHub Releases</a>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="shot-card">
+        <img src="images/pc-main.png" alt="Audacity Remote Server PC Window" />
+        <div class="shot-cap" id="capPc"></div>
+      </div>
+      <div class="shot-card mobile">
+        <img src="images/mobile-remote.png" alt="Audacity Remote Mobile HTML View" />
+        <div class="shot-cap" id="capMobile"></div>
+      </div>
+    </section>
+
+    <section class="grid-3">
+      <div class="card">
+        <h3 id="f1Title"></h3>
+        <p id="f1Body"></p>
+      </div>
+      <div class="card">
+        <h3 id="f2Title"></h3>
+        <p id="f2Body"></p>
+      </div>
+      <div class="card">
+        <h3 id="f3Title"></h3>
+        <p id="f3Body"></p>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="guideTitle"></h2>
+    <section class="guide-grid">
+      <div class="card">
+        <h3 id="g1Title"></h3>
+        <ol id="g1List"></ol>
+      </div>
+      <div class="card">
+        <h3 id="g2Title"></h3>
+        <ul id="g2List"></ul>
+      </div>
+    </section>
+
+    <div class="warn-box" id="warnBox"></div>
+
+    <section class="story-card">
+      <h2 class="section-title" id="storyTitle"></h2>
+      <p id="storyBody" style="color:#cbd5e1; margin:0 0 10px;"></p>
+      <p id="privacyBody" style="color:#94a3b8; font-size:0.9rem; margin:0;"></p>
+      <div class="social-row">
+        <a class="social-pill" href="https://www.instagram.com/deniethesinger" target="_blank">Instagram</a>
+        <a class="social-pill" href="https://www.tiktok.com/@denie.official" target="_blank">TikTok</a>
+        <a class="social-pill" href="https://www.youtube.com/@denieofficial" target="_blank">YouTube</a>
+        <a class="social-pill" href="https://www.facebook.com/Deniethesinger" target="_blank">Facebook</a>
+        <a class="social-pill kofi" id="kofiLink" href="https://ko-fi.com/deniethesinger" target="_blank">☕ Ko-fi</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" id="footerTxt"></div>
+  </footer>
+
+  <script>
+    const T = {
+      en: {
+        langLbl: "Language:",
+        badge: "Freeware • Windows x64 • Audacity 3.x & 4",
+        heroSub: "Control Audacity wirelessly from your iPad, tablet, or smartphone over local Wi-Fi — start, pause, stop, jump tracks, and monitor your live microphone VU meter without walking back and forth to your PC.",
+        dl: "⬇ Download AudacityRemoteServer.exe",
+        rel: "All Releases & Changelog",
+        capPc: "PC Server (Windows) — QR code, live VU meter, Audacity 3/4 auto-detection",
+        capMobile: "Mobile / iPad Web Remote — 24-segment LED VU meter & big touch controls",
+        f1Title: "Zero-Install & Portable Ready",
+        f1Body: "Single standalone .exe (no .NET runtime or admin rights required). Automatically detects running Audacity 3.x, Audacity 4, and portable builds.",
+        f2Title: "Pipe + Fast Win32 Shortcuts",
+        f2Body: "Uses mod-script-pipe for silent background control in Audacity 3.x and automatically falls back to ultra-fast Win32 SendInput shortcuts for Audacity 4.",
+        f3Title: "Live Mic VU Meter & 8 Languages",
+        f3Body: "Real-time WASAPI microphone peak meter streamed to your phone, plus 8 UI languages synced automatically between PC and mobile.",
+        guideTitle: "Quick Setup Guide",
+        g1Title: "1. Start in 30 Seconds",
+        g1: [
+          "Download and run <b>AudacityRemoteServer.exe</b> on your Windows PC.",
+          "Start <b>Audacity</b> manually and open or create a project.",
+          "Click <b>Allow Network Access</b> once if Windows Firewall blocks port 8765.",
+          "Scan the <b>QR code</b> with your phone or iPad on the same Wi-Fi (make sure the URL uses <code>http://</code>, not <code>https://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs. Audacity 4",
+        g2: [
+          "<b>Audacity 3.x (Pipe):</b> Enable <code>mod-script-pipe</code> in <i>Edit → Preferences → Modules</i> and restart Audacity for instant background control.",
+          "<b>Audacity 4 / Portable (Keys):</b> Works out of the box using keyboard shortcuts (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>) — customizable in Settings."
+        ],
+        warn: "<b>⚠ Audacity 4 Tip:</b> Recording (<code>R</code>) happens on a single track and can overwrite existing audio if the cursor is not past the end. Tap <b>To End (End)</b> before recording a new take!",
+        storyTitle: "Created for Singer Denie — Free for All Creators",
+        storyBody: "This lightweight tool was created by a father for his daughter, singer Denie, to make recording vocals effortless from a tablet or phone. Freeware for personal and commercial use.",
+        privacy: "🔒 Privacy: No telemetry, no cloud, no personal data collected. All traffic stays strictly inside your local Wi-Fi network.",
+        kofi: "☕ Buy Denie a Coffee (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Closed-source Freeware (EULA)"
+      },
+      cs: {
+        langLbl: "Jazyk:",
+        badge: "Freeware • Windows x64 • Audacity 3.x i 4",
+        heroSub: "Ovládejte Audacity bezdrátově z iPadu, tabletu nebo mobilu přes domácí Wi-Fi — spouštějte a pozastavujte nahrávání, posouvejte kurzor a sledujte živý VU meter mikrofonu bez odbíhání k PC.",
+        dl: "⬇ Stáhnout AudacityRemoteServer.exe",
+        rel: "Všechny verze (Releases)",
+        capPc: "PC Server (Windows) — QR kód, živý VU meter, automatická detekce Audacity 3/4",
+        capMobile: "Mobilní / iPad ovladač — 24segmentový LED VU meter a velká dotyková tlačítka",
+        f1Title: "Bez instalace i pro Portable",
+        f1Body: "Jediný samostatný .exe soubor (bez instalace .NET či práv správce). Automaticky najde běžící Audacity 3.x, Audacity 4 i portable verze.",
+        f2Title: "Pipe + rychlé Win32 zkratky",
+        f2Body: "V Audacity 3.x využívá mod-script-pipe i na pozadí, v Audacity 4 automaticky přepne na bleskové Win32 klávesové zkratky.",
+        f3Title: "Živý VU meter a 8 jazyků",
+        f3Body: "Přenos úrovně mikrofonu (WASAPI) v reálném čase do mobilu a 8 jazyků s automatickou synchronizací mezi PC a telefonem.",
+        guideTitle: "Rychlý návod ke zprovoznění",
+        g1Title: "1. Spuštění za 30 sekund",
+        g1: [
+          "Stáhněte a spusťte <b>AudacityRemoteServer.exe</b> na Windows PC.",
+          "Spusťte ručně <b>Audacity</b> a otevřete nebo založte projekt.",
+          "Klikněte jednorázově na <b>Povolit síťový přístup</b> (povolí port 8765 ve Windows Firewall).",
+          "Naskenujte <b>QR kód</b> telefonem nebo iPadem na stejné Wi-Fi (adresa musí začínat <code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs. Audacity 4",
+        g2: [
+          "<b>Audacity 3.x (Pipe):</b> V <i>Upravit → Předvolby → Moduly</i> zapněte <code>mod-script-pipe</code> na <i>Enabled</i> a restartujte Audacity.",
+          "<b>Audacity 4 / Portable (Klávesy):</b> Funguje ihned přes klávesy (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>) — vše lze přemapovat v Nastavení."
+        ],
+        warn: "<b>⚠ Upozornění pro Audacity 4:</b> Nahrávání (<code>R</code>) probíhá v jedné stopě a může přepsat záznam, pokud kurzor není za koncem. Před novým záběrem klepněte na <b>Na konec (End)</b>!",
+        storyTitle: "Vytvořeno pro zpěvačku Denie — zdarma pro všechny",
+        storyBody: "Tento nástroj vznikl pro mou dceru, zpěvačku Denie, aby mohla pohodlně nahrávat zpěv z tabletu nebo mobilu. Aplikace je zdarma (freeware) pro osobní i komerční použití.",
+        privacy: "🔒 Ochrana soukromí: Žádná telemetrie, žádný cloud ani sběr osobních údajů. Veškerá komunikace probíhá čistě ve vaší lokální síti.",
+        kofi: "☕ Koupit Denie kafé (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Uzavřený Freeware (EULA)"
+      },
+      de: {
+        langLbl: "Sprache:",
+        badge: "Freeware • Windows x64 • Audacity 3.x & 4",
+        heroSub: "Steuern Sie Audacity kabellos per iPad, Tablet oder Smartphone über Ihr lokales WLAN — Aufnahme starten, pausieren, stoppen und Live-VU-Meter prüfen, ohne zum PC zu laufen.",
+        dl: "⬇ AudacityRemoteServer.exe herunterladen",
+        rel: "Alle Releases",
+        capPc: "PC-Server (Windows) — QR-Code, Live-VU-Meter, automatische Audacity-Erkennung",
+        capMobile: "Mobile / iPad Web-Remote — 24-Segment-LED-VU-Meter & große Touch-Tasten",
+        f1Title: "Ohne Installation & Portable",
+        f1Body: "Einzelne eigenständige .exe-Datei (ohne .NET oder Adminrechte). Erkennt Audacity 3.x, Audacity 4 und portable Versionen automatisch.",
+        f2Title: "Pipe + schnelle Win32-Kürzel",
+        f2Body: "Nutzt mod-script-pipe im Hintergrund für Audacity 3.x und wechselt automatisch auf schnelle Win32-Tastenkürzel für Audacity 4.",
+        f3Title: "Live-VU-Meter & 8 Sprachen",
+        f3Body: "Echtzeit-Mikrofonpegel (WASAPI) auf dem Smartphone und 8 Sprachen mit automatischer Synchronisation.",
+        guideTitle: "Kurzanleitung",
+        g1Title: "1. In 30 Sekunden startklar",
+        g1: [
+          "Laden Sie <b>AudacityRemoteServer.exe</b> herunter und starten Sie es.",
+          "Starten Sie <b>Audacity</b> manuell mit einem geöffneten Projekt.",
+          "Klicken Sie einmal auf <b>Netzwerkzugriff erlauben</b> (Port 8765 in der Firewall).",
+          "Scannen Sie den <b>QR-Code</b> im selben WLAN (Adresse beginnt mit <code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs. Audacity 4",
+        g2: [
+          "<b>Audacity 3.x (Pipe):</b> Aktivieren Sie <code>mod-script-pipe</code> unter <i>Bearbeiten → Einstellungen → Module</i>.",
+          "<b>Audacity 4 / Portable:</b> Funktioniert sofort per Tastenkürzel (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Hinweis für Audacity 4:</b> Aufnahmen (<code>R</code>) erfolgen auf einer Spur. Tippen Sie vor jeder neuen Aufnahme auf <b>Ende (End)</b>!",
+        storyTitle: "Entwickelt für Sängerin Denie — kostenlos für alle",
+        storyBody: "Dieses Tool wurde von einem Vater für seine Tochter, Sängerin Denie, erstellt. Kostenlose Freeware für privaten und kommerziellen Gebrauch.",
+        privacy: "🔒 Datenschutz: Keine Telemetrie, keine Cloud, keine Datenerfassung. Alles bleibt in Ihrem lokalen WLAN.",
+        kofi: "☕ Denie einen Kaffee spendieren (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      },
+      es: {
+        langLbl: "Idioma:",
+        badge: "Freeware • Windows x64 • Audacity 3.x y 4",
+        heroSub: "Controla Audacity sin cables desde tu iPad, tablet o móvil por Wi-Fi local — graba, pausa, detén y vigila el medidor VU en vivo sin levantarte hacia el PC.",
+        dl: "⬇ Descargar AudacityRemoteServer.exe",
+        rel: "Todas las versiones",
+        capPc: "Servidor PC (Windows) — Código QR, VU meter en vivo, detección automática",
+        capMobile: "Control móvil / iPad — VU meter LED de 24 segmentos y botones táctiles",
+        f1Title: "Sin instalación y Portable",
+        f1Body: "Un único archivo .exe independiente (sin .NET ni permisos de administrador). Detecta Audacity 3.x, 4 y portables.",
+        f2Title: "Pipe + atajos Win32 rápidos",
+        f2Body: "Usa mod-script-pipe en segundo plano en Audacity 3.x y atajos Win32 ultrarrápidos en Audacity 4.",
+        f3Title: "VU Meter en vivo y 8 idiomas",
+        f3Body: "Nivel de micrófono WASAPI en tiempo real en el móvil y 8 idiomas sincronizados automáticamente.",
+        guideTitle: "Guía rápida",
+        g1Title: "1. En marcha en 30 segundos",
+        g1: [
+          "Descarga y abre <b>AudacityRemoteServer.exe</b> en Windows.",
+          "Abre <b>Audacity</b> manualmente con un proyecto abierto.",
+          "Pulsa una vez <b>Permitir acceso de red</b> (puerto 8765).",
+          "Escanea el <b>código QR</b> en el mismo Wi-Fi (<code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs. Audacity 4",
+        g2: [
+          "<b>Audacity 3.x:</b> Activa <code>mod-script-pipe</code> en <i>Editar → Preferencias → Módulos</i>.",
+          "<b>Audacity 4:</b> Funciona al instante por atajos (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Aviso Audacity 4:</b> Grabar con <code>R</code> usa una sola pista. ¡Pulsa <b>Fin (End)</b> antes de cada toma nueva!",
+        storyTitle: "Creado para la cantante Denie — Gratis para todos",
+        storyBody: "Creado por un padre para su hija, la cantante Denie. Freeware gratuito para uso personal y comercial.",
+        privacy: "🔒 Privacidad: Sin telemetría ni servidores externos. Todo ocurre en tu red Wi-Fi local.",
+        kofi: "☕ Invitar a Denie a un café (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      },
+      fr: {
+        langLbl: "Langue :",
+        badge: "Freeware • Windows x64 • Audacity 3.x & 4",
+        heroSub: "Contrôlez Audacity sans fil depuis votre iPad, tablette ou smartphone en Wi-Fi local — enregistrez, mettez en pause et surveillez le VU-mètre en direct sans quitter votre micro.",
+        dl: "⬇ Télécharger AudacityRemoteServer.exe",
+        rel: "Toutes les versions",
+        capPc: "Serveur PC (Windows) — Code QR, VU-mètre en direct, détection auto",
+        capMobile: "Télécommande Mobile / iPad — VU-mètre LED 24 segments et grands boutons",
+        f1Title: "Sans installation & Portable",
+        f1Body: "Un seul fichier .exe autonome (sans .NET ni droits admin). Détecte Audacity 3.x, 4 et portables.",
+        f2Title: "Pipe + raccourcis Win32",
+        f2Body: "Utilise mod-script-pipe en arrière-plan pour Audacity 3.x et les raccourcis Win32 rapides pour Audacity 4.",
+        f3Title: "VU-mètre en direct & 8 langues",
+        f3Body: "Niveau micro WASAPI en temps réel sur mobile et 8 langues synchronisées automatiquement.",
+        guideTitle: "Guide de démarrage",
+        g1Title: "1. Prêt en 30 secondes",
+        g1: [
+          "Téléchargez et lancez <b>AudacityRemoteServer.exe</b> sur Windows.",
+          "Ouvrez <b>Audacity</b> manuellement avec un projet ouvert.",
+          "Cliquez une fois sur <b>Autoriser l'accès réseau</b> (port 8765).",
+          "Scannez le <b>QR code</b> sur le même Wi-Fi (<code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs Audacity 4",
+        g2: [
+          "<b>Audacity 3.x :</b> Activez <code>mod-script-pipe</code> dans <i>Édition → Préférences → Modules</i>.",
+          "<b>Audacity 4 :</b> Fonctionne immédiatement via raccourcis (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Astuce Audacity 4 :</b> L'enregistrement (<code>R</code>) se fait sur une piste unique. Touchez <b>Fin (End)</b> avant chaque nouvelle prise !",
+        storyTitle: "Créé pour la chanteuse Denie — Gratuit pour tous",
+        storyBody: "Créé par un père pour sa fille, la chanteuse Denie. Freeware gratuit pour usage personnel et commercial.",
+        privacy: "🔒 Confidentialité : Aucune télémétrie ni cloud. Tout reste dans votre réseau Wi-Fi local.",
+        kofi: "☕ Offrir un café à Denie (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      },
+      it: {
+        langLbl: "Lingua:",
+        badge: "Freeware • Windows x64 • Audacity 3.x e 4",
+        heroSub: "Controlla Audacity senza fili da iPad, tablet o smartphone via Wi-Fi locale — avvia, metti in pausa, ferma e controlla il VU meter dal vivo senza alzarti verso il PC.",
+        dl: "⬇ Scarica AudacityRemoteServer.exe",
+        rel: "Tutte le versioni",
+        capPc: "Server PC (Windows) — Codice QR, VU meter live, rilevamento automatico",
+        capMobile: "Telecomando Mobile / iPad — VU meter LED a 24 segmenti",
+        f1Title: "Senza installazione e Portable",
+        f1Body: "Un singolo file .exe autonomo (senza .NET né diritti admin). Rileva Audacity 3.x, 4 e portable.",
+        f2Title: "Pipe + scorciatoie Win32",
+        f2Body: "Usa mod-script-pipe in background su Audacity 3.x e scorciatoie Win32 veloci su Audacity 4.",
+        f3Title: "VU meter live e 8 lingue",
+        f3Body: "Livello microfono WASAPI in tempo reale sul telefono e 8 lingue sincronizzate.",
+        guideTitle: "Guida rapida",
+        g1Title: "1. Pronto in 30 secondi",
+        g1: [
+          "Scarica e avvia <b>AudacityRemoteServer.exe</b> su Windows.",
+          "Avvia <b>Audacity</b> manualmente con un progetto aperto.",
+          "Clicca una volta su <b>Consenti accesso rete</b> (porta 8765).",
+          "Scansiona il <b>codice QR</b> sullo stesso Wi-Fi (<code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs Audacity 4",
+        g2: [
+          "<b>Audacity 3.x:</b> Attiva <code>mod-script-pipe</code> in <i>Modifica → Preferenze → Moduli</i>.",
+          "<b>Audacity 4:</b> Funziona subito con le scorciatoie (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Avviso Audacity 4:</b> La registrazione (<code>R</code>) avviene su una sola traccia. Tocca <b>Fine (End)</b> prima di una nuova ripresa!",
+        storyTitle: "Creato per la cantante Denie — Gratis per tutti",
+        storyBody: "Creato da un padre per sua figlia, la cantante Denie. Freeware gratuito per uso personale e commerciale.",
+        privacy: "🔒 Privacy: Nessuna telemetria o cloud. Tutto resta nella tua rete Wi-Fi locale.",
+        kofi: "☕ Offri un caffè a Denie (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      },
+      pl: {
+        langLbl: "Język:",
+        badge: "Freeware • Windows x64 • Audacity 3.x i 4",
+        heroSub: "Steruj Audacity bezprzewodowo z iPada, tabletu lub telefonu w sieci Wi-Fi — nagrywaj, zatrzymuj i obserwuj wskaźnik VU mikrofonu na żywo bez podchodzenia do komputera.",
+        dl: "⬇ Pobierz AudacityRemoteServer.exe",
+        rel: "Wszystkie wydania",
+        capPc: "Serwer PC (Windows) — kod QR, wskaźnik VU na żywo, autodetekcja",
+        capMobile: "Pilot Mobilny / iPad — 24-segmentowy wskaźnik LED VU",
+        f1Title: "Bez instalacji i dla Portable",
+        f1Body: "Jeden samodzielny plik .exe (bez .NET i uprawnień admina). Automatycznie wykrywa Audacity 3.x, 4 i portable.",
+        f2Title: "Pipe + szybkie skróty Win32",
+        f2Body: "W Audacity 3.x działa w tle przez mod-script-pipe, a w Audacity 4 przez błyskawiczne skróty Win32.",
+        f3Title: "Miernik VU na żywo i 8 języków",
+        f3Body: "Poziom mikrofonu WASAPI w czasie rzeczywistym na telefonie oraz 8 języków z automatyczną synchronizacją.",
+        guideTitle: "Szybka instrukcja",
+        g1Title: "1. Start w 30 sekund",
+        g1: [
+          "Pobierz i uruchom <b>AudacityRemoteServer.exe</b> na Windows.",
+          "Uruchom <b>Audacity</b> ręcznie z otwartym projektem.",
+          "Kliknij raz <b>Zezwól na dostęp sieciowy</b> (port 8765 w Zaporze).",
+          "Zeskanuj <b>kod QR</b> w tej samej sieci Wi-Fi (<code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs Audacity 4",
+        g2: [
+          "<b>Audacity 3.x:</b> Włącz <code>mod-script-pipe</code> w <i>Edycja → Preferencje → Moduły</i>.",
+          "<b>Audacity 4:</b> Działa od razu przez skróty (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Uwaga dla Audacity 4:</b> Nagrywanie (<code>R</code>) odbywa się na jednej ścieżce. Kliknij <b>Koniec (End)</b> przed nowym ujęciem!",
+        storyTitle: "Stworzone dla wokalistki Denie — darmowe dla wszystkich",
+        storyBody: "Narzędzie stworzone przez ojca dla jego córki, wokalistki Denie. Darmowe (freeware) do użytku osobistego i komercyjnego.",
+        privacy: "🔒 Prywatność: Brak telemetrii i chmury. Cały ruch pozostaje wyłącznie w lokalnej sieci Wi-Fi.",
+        kofi: "☕ Postaw Denie kawę (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      },
+      ro: {
+        langLbl: "Limbă:",
+        badge: "Freeware • Windows x64 • Audacity 3.x și 4",
+        heroSub: "Controlează Audacity wireless de pe iPad, tabletă sau telefon prin Wi-Fi local — pornește, pune pauză, oprește și urmărește VU-metrul live fără să te deplasezi la PC.",
+        dl: "⬇ Descarcă AudacityRemoteServer.exe",
+        rel: "Toate versiunile",
+        capPc: "Server PC (Windows) — cod QR, VU-metru live, detectare automată",
+        capMobile: "Telecomandă Mobil / iPad — VU-metru LED cu 24 segmente",
+        f1Title: "Fără instalare și Portabil",
+        f1Body: "Un singur fișier .exe independent (fără .NET sau drepturi admin). Detectează automat Audacity 3.x, 4 și portabile.",
+        f2Title: "Pipe + scurtături Win32 rapide",
+        f2Body: "Folosește mod-script-pipe în fundal pentru Audacity 3.x și scurtături Win32 rapide pentru Audacity 4.",
+        f3Title: "VU-metru live și 8 limbi",
+        f3Body: "Nivel microfon WASAPI în timp real pe telefon și 8 limbi sincronizate automat între PC și mobil.",
+        guideTitle: "Ghid rapid",
+        g1Title: "1. Pornire în 30 de secunde",
+        g1: [
+          "Descărcați și rulați <b>AudacityRemoteServer.exe</b> pe Windows.",
+          "Porniți <b>Audacity</b> manual cu un proiect deschis.",
+          "Apăsați o dată <b>Permite acces rețea</b> (portul 8765 în Firewall).",
+          "Scanați <b>codul QR</b> pe același Wi-Fi (<code>http://</code>)."
+        ],
+        g2Title: "2. Audacity 3.x vs. Audacity 4",
+        g2: [
+          "<b>Audacity 3.x:</b> Activați <code>mod-script-pipe</code> din <i>Edit → Preferences → Modules</i>.",
+          "<b>Audacity 4:</b> Funcționează imediat prin scurtături (<code>REC=R</code>, <code>PLAY=P</code>, <code>STOP=Space</code>, <code>Home/End</code>)."
+        ],
+        warn: "<b>⚠ Atenție Audacity 4:</b> Înregistrarea (<code>R</code>) are loc pe o singură pistă. Apăsați <b>Sfârșit (End)</b> înainte de o dublă nouă!",
+        storyTitle: "Creat pentru cântăreața Denie — Gratuit pentru toți",
+        storyBody: "Creat de un tată pentru fiica lui, cântăreața Denie. Freeware gratuit pentru uz personal și comercial.",
+        privacy: "🔒 Confidențialitate: Fără telemetrie, fără cloud. Tot traficul rămâne strict în rețeaua Wi-Fi locală.",
+        kofi: "☕ Cumpără-i lui Denie o cafea (Ko-fi)",
+        footer: "Audacity Remote Server • DoruTools • Freeware (EULA)"
+      }
+    };
+
+    function detectSystemLang() {
+      const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+      for (const l of langs) {
+        const code = String(l).toLowerCase().slice(0, 2);
+        if (T[code]) return code;
+      }
+      return "en";
+    }
+
+    function setLang(code) {
+      const t = T[code] || T.en;
+      document.documentElement.lang = code;
+      document.getElementById("langSel").value = T[code] ? code : "en";
+      document.getElementById("lblLang").textContent = t.langLbl;
+      document.getElementById("badgeVer").textContent = t.badge;
+      document.getElementById("heroSub").textContent = t.heroSub;
+      document.getElementById("btnDownload").textContent = t.dl;
+      document.getElementById("btnReleases").textContent = t.rel;
+      document.getElementById("capPc").textContent = t.capPc;
+      document.getElementById("capMobile").textContent = t.capMobile;
+      document.getElementById("f1Title").textContent = t.f1Title;
+      document.getElementById("f1Body").textContent = t.f1Body;
+      document.getElementById("f2Title").textContent = t.f2Title;
+      document.getElementById("f2Body").textContent = t.f2Body;
+      document.getElementById("f3Title").textContent = t.f3Title;
+      document.getElementById("f3Body").textContent = t.f3Body;
+      document.getElementById("guideTitle").textContent = t.guideTitle;
+      document.getElementById("g1Title").textContent = t.g1Title;
+      document.getElementById("g1List").innerHTML = t.g1.map(x => `<li>${x}</li>`).join("");
+      document.getElementById("g2Title").textContent = t.g2Title;
+      document.getElementById("g2List").innerHTML = t.g2.map(x => `<li>${x}</li>`).join("");
+      document.getElementById("warnBox").innerHTML = t.warn;
+      document.getElementById("storyTitle").textContent = t.storyTitle;
+      document.getElementById("storyBody").textContent = t.storyBody;
+      document.getElementById("privacyBody").textContent = t.privacy;
+      document.getElementById("kofiLink").textContent = t.kofi;
+      document.getElementById("footerTxt").textContent = t.footer;
+    }
+
+    setLang(detectSystemLang());
+  </script>
+</body>
+</html>
