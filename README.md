@@ -1,31 +1,42 @@
+[🇬🇧 English](README.md) | [🇨🇿 Čeština](docs/README.cs.md) | [🇩🇪 Deutsch](docs/README.de.md) | [🇪🇸 Español](docs/README.es.md) | [🇫🇷 Français](docs/README.fr.md) | [🇮🇹 Italiano](docs/README.it.md) | [🇵🇱 Polski](docs/README.pl.md) | [🇷🇴 Română](docs/README.ro.md)
+
 # Audacity Remote Server (DoruTools)
 
-Wireless local Wi-Fi remote control for **Audacity 3.x**, **Audacity 4**, and portable builds — control recording, playback, pause, stop, cursor jump, and live microphone VU meter directly from your iPad, tablet, or smartphone without walking back and forth to your PC.
+Wireless local Wi-Fi remote control for **Audacity 3.x**, **Audacity 4**, and portable builds — control recording, playback, pause, stop, cursor jump, and live microphone VU meter directly from your iPad or smartphone.
 
-## Download
+### [⬇ Download AudacityRemoteServer.exe (Latest)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interactive Web Page (Auto-Language)](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
-Official Windows releases (standalone single-file `AudacityRemoteServer.exe`, no .NET installation required) are published in the **[Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)** section of this repository.
+---
 
-> **Note:** This public repository hosts official release binaries and documentation only. Source code is closed and maintained privately.
+## Screenshots
 
-## Highlights
+| PC Server (Windows) | Mobile / iPad Web Remote |
+| :---: | :---: |
+| <img src="docs/images/pc-main.png" alt="PC Server" width="620" /> | <img src="docs/images/mobile-remote.png" alt="Mobile Remote" width="230" /> |
 
-- **Works out of the box** over your local Wi-Fi network (no internet, no cloud, no telemetry).
-- **QR code connection** for instant mobile/iPad pairing.
-- **Supports Audacity 3.x (mod-script-pipe & keyboard fallback), Audacity 4, and portable builds.**
-- **Live microphone VU meter** and customizable keyboard shortcuts.
-- **8 languages:** Čeština, Deutsch, English, Español, Français, Italiano, Polski, Română.
+---
 
-## Support the Music
+## Quick Setup Guide
 
-Created by a father for his daughter, singer **Denie**. Free to use for all singers, musicians, podcasters, and creators!
+1. Download and launch **AudacityRemoteServer.exe** (standalone single-file, no installation or .NET needed).
+2. Start **Audacity** manually and open or create a project (auto-detected by process name or mod-script-pipe).
+3. Click **Allow Network Access** once if Windows Firewall blocks port 8765.
+4. Scan the **QR code** from your phone/iPad on the same Wi-Fi (ensure the browser URL uses http://, not https://).
+
+> ⚠ **Audacity 4 Tip:** Recording (R) uses a single track and can overwrite existing audio if the cursor is not past the end. Tap **To End (End)** before recording a new take!
+
+---
+
+## Support the Music (Denie)
+
+Created by a father for his daughter, singer **Denie**, to make recording vocals effortless from a tablet or phone.
+
+🔒 **Privacy:** No telemetry, no cloud, no personal data collected — all traffic stays strictly on your local Wi-Fi.
 
 - **Instagram:** https://www.instagram.com/deniethesinger
 - **TikTok:** https://www.tiktok.com/@denie.official
 - **YouTube:** https://www.youtube.com/@denieofficial
 - **Facebook:** https://www.facebook.com/Deniethesinger
-- **Buy Denie a coffee (Ko-fi):** https://ko-fi.com/deniethesinger
+- **Ko-fi:** https://ko-fi.com/deniethesinger
 
-## License
-
-Freeware (closed source) for personal and commercial use. See [LICENSE](LICENSE) for full terms.
+Freeware (closed source) — see [LICENSE](LICENSE).
