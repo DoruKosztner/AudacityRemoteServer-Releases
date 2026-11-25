@@ -2,6 +2,8 @@
 
 # Audacity Remote Server (DoruTools)
 
+![Počet stažení](https://img.shields.io/github/downloads/DoruKosztner/AudacityRemoteServer-Releases/total?label=Staženo&color=brightgreen)
+
 Télécommande Wi-Fi locale pour **Audacity 3.x**, **Audacity 4** et versions portables — enregistrement, pause, lecture et VU-mètre en direct depuis iPad ou mobile.
 
 ### [⬇ Télécharger AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Page web interactive](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)

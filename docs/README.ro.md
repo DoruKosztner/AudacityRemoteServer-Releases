@@ -2,6 +2,8 @@
 
 # Audacity Remote Server (DoruTools)
 
+![Počet stažení](https://img.shields.io/github/downloads/DoruKosztner/AudacityRemoteServer-Releases/total?label=Staženo&color=brightgreen)
+
 Telecomandă Wi-Fi locală pentru **Audacity 3.x**, **Audacity 4** și versiuni portabile — înregistrare, pauză, redare și VU-metru live de pe iPad sau telefon.
 
 ### [⬇ Descarcă AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagină web interactivă](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)

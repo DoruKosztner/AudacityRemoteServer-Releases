@@ -2,6 +2,8 @@
 
 # Audacity Remote Server (DoruTools)
 
+![Počet stažení](https://img.shields.io/github/downloads/DoruKosztner/AudacityRemoteServer-Releases/total?label=Staženo&color=brightgreen)
+
 Kabellose WLAN-Fernbedienung für **Audacity 3.x**, **Audacity 4** und portable Versionen — Aufnahme, Pause, Wiedergabe und Live-VU-Meter direkt vom iPad oder Smartphone.
 
 ### [⬇ AudacityRemoteServer.exe herunterladen](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktive Webseite](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
