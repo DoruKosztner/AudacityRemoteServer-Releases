@@ -6,6 +6,9 @@ Control remoto Wi-Fi para **Audacity 3.x**, **Audacity 4** y versiones portables
 
 ### [⬇ Descargar AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Página web interactiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Como esta aplicación gratuita aún no cuenta con un certificado comercial de pago, Windows puede mostrar *"Windows protegió su PC"* al iniciarla por primera vez. Haz clic en **Más información** y luego en **Ejecutar de todas formas**.
+
 ---
 
 ## Capturas de pantalla
