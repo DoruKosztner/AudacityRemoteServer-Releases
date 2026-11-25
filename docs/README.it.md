@@ -1,6 +1,6 @@
 [🇬🇧 English](../README.md) | [🇨🇿 Čeština](README.cs.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇫🇷 Français](README.fr.md) | [🇮🇹 Italiano](README.it.md) | [🇵🇱 Polski](README.pl.md) | [🇷🇴 Română](README.ro.md)
 
-# Audacity Remote Server (DoruTools)
+# Remote Server for Audacity (DoruTools)
 
 ![Počet stažení](https://img.shields.io/github/downloads/DoruKosztner/AudacityRemoteServer-Releases/total?label=Staženo&color=brightgreen)
 
