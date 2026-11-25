@@ -6,6 +6,9 @@ Telecomando Wi-Fi locale per **Audacity 3.x**, **Audacity 4** e versioni portabl
 
 ### [⬇ Scarica AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagina web interattiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Poiché questa app gratuita non ha ancora un certificato commerciale a pagamento, al primo avvio Windows potrebbe mostrare *"PC protetto da Windows"*. Fai clic su **Ulteriori informazioni** e poi su **Esegui comunque**.
+
 ---
 
 ## Schermate
