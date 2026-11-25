@@ -6,6 +6,9 @@ Telecomandă Wi-Fi locală pentru **Audacity 3.x**, **Audacity 4** și versiuni 
 
 ### [⬇ Descarcă AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagină web interactivă](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
+> [!NOTE]
+> **Windows SmartScreen:** Deoarece această aplicație gratuită nu are încă un certificat comercial plătit, Windows poate afișa la prima pornire mesajul *"Windows a protejat PC-ul"*. Faceți clic pe **Informații suplimentare** și apoi pe **Executare oricum**.
+
 ---
 
 ## Capturi de ecran
