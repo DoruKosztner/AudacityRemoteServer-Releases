@@ -6,7 +6,7 @@
 
 Bezdrátový dálkový ovladač pro **Audacity 3.x**, **Audacity 4** i portable verze přes lokální Wi-Fi — nahrávání, pauza, přehrávání, skok na začátek/konec a živý VU meter mikrofonu přímo z iPadu nebo mobilu.
 
-### [⬇ Stáhnout AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktivní webová stránka](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Stáhnout Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktivní webová stránka](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Protože jde o bezplatnou aplikaci bez placeného komerčního certifikátu, může Windows při prvním spuštění zobrazit modré okno *"Systém Windows ochránil váš počítač"*. Stačí kliknout na **Další informace** a poté na **Přesto spustit**.
@@ -23,7 +23,7 @@ Bezdrátový dálkový ovladač pro **Audacity 3.x**, **Audacity 4** i portable 
 
 ## Rychlý návod ke zprovoznění
 
-1. Stáhněte a spusťte **AudacityRemoteServer.exe** (samostatný soubor bez instalace).
+1. Stáhněte a spusťte **Remote Server for Audacity** (AudacityRemoteServer.exe) (samostatný soubor bez instalace).
 2. Spusťte ručně **Audacity** s otevřeným projektem (aplikace sama najde Audacity 3.x, 4 i portable).
 3. Jednorázově klikněte na **Povolit síťový přístup** (otevře port 8765 ve Windows Firewall).
 4. Naskenujte **QR kód** telefonem nebo iPadem na stejné Wi-Fi (adresa musí začínat http://).

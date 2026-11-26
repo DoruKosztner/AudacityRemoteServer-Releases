@@ -6,7 +6,7 @@
 
 Telecomando Wi-Fi locale per **Audacity 3.x**, **Audacity 4** e versioni portable — registrazione, pausa, riproduzione e VU meter live da iPad o smartphone.
 
-### [⬇ Scarica AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagina web interattiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Scarica Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagina web interattiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Poiché questa app gratuita non ha ancora un certificato commerciale a pagamento, al primo avvio Windows potrebbe mostrare *"PC protetto da Windows"*. Fai clic su **Ulteriori informazioni** e poi su **Esegui comunque**.
@@ -23,7 +23,7 @@ Telecomando Wi-Fi locale per **Audacity 3.x**, **Audacity 4** e versioni portabl
 
 ## Guida rapida
 
-1. Scarica e avvia **AudacityRemoteServer.exe**.
+1. Scarica e avvia **Remote Server for Audacity** (AudacityRemoteServer.exe).
 2. Avvia **Audacity** manualmente con un progetto aperto.
 3. Clicca una volta su **Consenti accesso rete** (porta 8765).
 4. Scansiona il **codice QR** sullo stesso Wi-Fi (http://).

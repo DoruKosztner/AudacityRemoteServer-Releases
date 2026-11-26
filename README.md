@@ -6,7 +6,7 @@
 
 Wireless local Wi-Fi remote control for **Audacity 3.x**, **Audacity 4**, and portable builds — control recording, playback, pause, stop, cursor jump, and live microphone VU meter directly from your iPad or smartphone.
 
-### [⬇ Download AudacityRemoteServer.exe (Latest)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interactive Web Page (Auto-Language)](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Download Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interactive Web Page (Auto-Language)](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Because this free app does not yet use a paid commercial code-signing certificate, Windows may show *"Windows protected your PC"* on first launch. Click **More info** and then **Run anyway**.
@@ -23,7 +23,7 @@ Wireless local Wi-Fi remote control for **Audacity 3.x**, **Audacity 4**, and po
 
 ## Quick Setup Guide
 
-1. Download and launch **AudacityRemoteServer.exe** (standalone single-file, no installation or .NET needed).
+1. Download and launch **Remote Server for Audacity** (AudacityRemoteServer.exe) (standalone single-file, no installation or .NET needed).
 2. Start **Audacity** manually and open or create a project (auto-detected by process name or mod-script-pipe).
 3. Click **Allow Network Access** once if Windows Firewall blocks port 8765.
 4. Scan the **QR code** from your phone/iPad on the same Wi-Fi (ensure the browser URL uses http://, not https://).

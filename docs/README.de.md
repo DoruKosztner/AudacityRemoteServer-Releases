@@ -6,7 +6,7 @@
 
 Kabellose WLAN-Fernbedienung für **Audacity 3.x**, **Audacity 4** und portable Versionen — Aufnahme, Pause, Wiedergabe und Live-VU-Meter direkt vom iPad oder Smartphone.
 
-### [⬇ AudacityRemoteServer.exe herunterladen](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktive Webseite](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Remote Server for Audacity (.exe) herunterladen](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktive Webseite](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Da diese kostenlose App noch kein kostenpflichtiges Code-Signing-Zertifikat besitzt, zeigt Windows beim ersten Start eventuell *"Der Computer wurde durch Windows geschützt"*. Klicken Sie auf **Weitere Informationen** und dann auf **Trotzdem ausführen**.
@@ -23,7 +23,7 @@ Kabellose WLAN-Fernbedienung für **Audacity 3.x**, **Audacity 4** und portable 
 
 ## Kurzanleitung
 
-1. Laden Sie **AudacityRemoteServer.exe** herunter und starten Sie es.
+1. Laden Sie **Remote Server for Audacity** (AudacityRemoteServer.exe) herunter und starten Sie es.
 2. Starten Sie **Audacity** manuell mit einem geöffneten Projekt.
 3. Klicken Sie einmal auf **Netzwerkzugriff erlauben** (Port 8765 in der Firewall).
 4. Scannen Sie den **QR-Code** im selben WLAN (http:// statt https://).

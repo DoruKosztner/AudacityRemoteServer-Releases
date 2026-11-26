@@ -6,7 +6,7 @@
 
 Bezprzewodowy pilot Wi-Fi dla **Audacity 3.x**, **Audacity 4** i wersji portable — nagrywanie, pauza, odtwarzanie i miernik VU na żywo z iPada lub telefonu.
 
-### [⬇ Pobierz AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktywna strona WWW](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Pobierz Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Interaktywna strona WWW](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Ponieważ ta darmowa aplikacja nie ma jeszcze płatnego certyfikatu komercyjnego, przy pierwszym uruchomieniu system Windows może wyświetlić komunikat *"System Windows ochronił ten komputer"*. Kliknij **Więcej informacji**, a następnie **Uruchom mimo to**.
@@ -23,7 +23,7 @@ Bezprzewodowy pilot Wi-Fi dla **Audacity 3.x**, **Audacity 4** i wersji portable
 
 ## Szybka instrukcja
 
-1. Pobierz i uruchom **AudacityRemoteServer.exe**.
+1. Pobierz i uruchom **Remote Server for Audacity** (AudacityRemoteServer.exe).
 2. Uruchom **Audacity** ręcznie z otwartym projektem.
 3. Kliknij raz **Zezwól na dostęp sieciowy** (port 8765).
 4. Zeskanuj **kod QR** w tej samej sieci Wi-Fi (http://).

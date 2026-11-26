@@ -6,7 +6,7 @@
 
 Telecomandă Wi-Fi locală pentru **Audacity 3.x**, **Audacity 4** și versiuni portabile — înregistrare, pauză, redare și VU-metru live de pe iPad sau telefon.
 
-### [⬇ Descarcă AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagină web interactivă](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Descarcă Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Pagină web interactivă](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Deoarece această aplicație gratuită nu are încă un certificat comercial plătit, Windows poate afișa la prima pornire mesajul *"Windows a protejat PC-ul"*. Faceți clic pe **Informații suplimentare** și apoi pe **Executare oricum**.
@@ -23,7 +23,7 @@ Telecomandă Wi-Fi locală pentru **Audacity 3.x**, **Audacity 4** și versiuni 
 
 ## Ghid rapid
 
-1. Descărcați și rulați **AudacityRemoteServer.exe**.
+1. Descărcați și rulați **Remote Server for Audacity** (AudacityRemoteServer.exe).
 2. Porniți **Audacity** manual cu un proiect deschis.
 3. Apăsați o dată **Permite acces rețea** (portul 8765).
 4. Scanați **codul QR** pe același Wi-Fi (http://).

@@ -6,7 +6,7 @@
 
 Control remoto Wi-Fi para **Audacity 3.x**, **Audacity 4** y versiones portables — graba, pausa, reproduce y vigila el VU meter en vivo desde tu iPad o móvil.
 
-### [⬇ Descargar AudacityRemoteServer.exe](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Página web interactiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
+### [⬇ Descargar Remote Server for Audacity (.exe)](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases/latest/download/AudacityRemoteServer.exe) &nbsp;|&nbsp; [🌐 Página web interactiva](https://dorukosztner.github.io/AudacityRemoteServer-Releases/) &nbsp;|&nbsp; [Releases](https://github.com/DoruKosztner/AudacityRemoteServer-Releases/releases)
 
 > [!NOTE]
 > **Windows SmartScreen:** Como esta aplicación gratuita aún no cuenta con un certificado comercial de pago, Windows puede mostrar *"Windows protegió su PC"* al iniciarla por primera vez. Haz clic en **Más información** y luego en **Ejecutar de todas formas**.
@@ -23,7 +23,7 @@ Control remoto Wi-Fi para **Audacity 3.x**, **Audacity 4** y versiones portables
 
 ## Guía rápida
 
-1. Descarga y ejecuta **AudacityRemoteServer.exe** (sin instalación).
+1. Descarga y ejecuta **Remote Server for Audacity** (AudacityRemoteServer.exe) (sin instalación).
 2. Abre **Audacity** manualmente con un proyecto.
 3. Pulsa una vez **Permitir acceso de red** (puerto 8765).
 4. Escanea el **código QR** en el mismo Wi-Fi (http://).
